@@ -1,0 +1,41 @@
+class Kadane{
+    
+    // Function to find circular subarray with maximum sum
+    // a: input array
+    // n: size of array
+    static int circularSubarraySum(int a[], int n) {
+        int k=kadane(a,n);
+        if(k<0)
+        {
+            return k;
+        }
+        
+        return Integer.max(kadane(a,n), reverseKadane(a,n));
+    }
+    static int kadane(int a[],int n)
+    {
+        int max=a[0];
+        int curr=a[0];
+        for(int i=1;i<n;i++)
+        {
+          curr=Math.max(a[i],a[i]+curr);
+          max=Math.max(max,curr);
+        }
+        return max;
+        
+    }
+    static int reverseKadane(int a[],int n)
+    {       int max=a[0];
+        int curr=a[0];
+        int sum=a[0];
+        for(int i=1;i<n;i++)
+        {
+            sum+=a[i];
+          curr=Math.min(a[i],a[i]+curr);
+          max=Math.min(max,curr);
+        }
+        return sum-max;
+        
+        
+    }
+}
