@@ -1,0 +1,25 @@
+class Solution
+{
+	public int maxSumIS(int arr[], int n)  
+	{  
+    int[] lis =new int[n];
+    lis[0]=arr[0];
+    for(int i=1;i<n;i++)
+    {
+        lis[i]=arr[i];
+    for(int j=0;j<i;j++)   
+    {
+     if(arr[j]<arr[i])   
+     {
+         lis[i]=Math.max(lis[i],arr[i]+lis[j]);
+     }
+    }
+    }
+    int result=lis[0];
+    for(int i=1;i<n;i++)
+    {
+     result=Math.max(result,lis[i]);   
+    }
+    return result;
+	}  
+}
