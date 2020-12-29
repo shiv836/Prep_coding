@@ -1,0 +1,20 @@
+class GfG
+{
+    int max_sum(int A[], int n)
+    {
+	int curr_sum=0;
+	int curr_value=0;
+	for(int i=0;i<n;i++)
+	{
+	curr_sum+=A[i];
+	curr_value+=A[i]*i;
+	}
+	int result=curr_value;
+	for(int j=1;j<n;j++)
+	{
+	  curr_value=curr_value+A[j-1]*(n-1)-curr_sum+A[j-1];
+	  result=Math.max(result,curr_value);
+	}
+	return result;
+    }	
+}
