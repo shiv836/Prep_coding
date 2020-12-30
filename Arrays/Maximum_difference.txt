@@ -1,0 +1,58 @@
+class GfG
+{
+    int findMaxDiff(int a[], int n)
+    {
+	// Your code here
+	int[] ls=new int[n];
+	int[] rs=new int[n];
+	Stack<Integer> stack=new Stack<Integer>();
+	for(int i=0;i<n;i++)
+	{
+	    ls[i]=0;
+	    if(stack.isEmpty())
+	    {
+	        ls[i]=0;
+	    }
+	    else
+	    {
+	        while(!stack.isEmpty() && stack.peek()>=a[i])
+	        {
+	            stack.pop();
+	        }
+	        if(!stack.isEmpty())
+	        {
+	         ls[i]=  stack.peek(); 
+	        }
+	    }
+	    stack.push(a[i]);
+	}
+	stack.clear();
+	for(int j=n-1;j>=0;j--)
+	{
+	    rs[j]=0;
+	    if(stack.isEmpty())
+	    {
+	        rs[j]=0;
+	    }
+	    else
+	    {
+	        while(!stack.isEmpty() && stack.peek()>=a[j])
+	        {
+	            stack.pop();
+	        }
+	        if(!stack.isEmpty())
+	        {
+	         rs[j]=  stack.peek(); 
+	        }
+	    }
+	    stack.push(a[j]);
+	}
+	stack.clear();
+	int result=Integer.MIN_VALUE;
+	for(int i=0;i<n;i++)
+	{
+	 result=Math.max(result,Math.abs(ls[i]-rs[i]));   
+	}
+	return result;
+    }
+}
