@@ -1,0 +1,1 @@
+in alternate positive and negative integer  such that the order remains same and we have to alternatively set  the positive and negative integer, what we do is that we make queue of the positive and negative integer than we traverse through the array and alternatively set the elements of the array.

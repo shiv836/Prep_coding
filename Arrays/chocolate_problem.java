@@ -6,6 +6,9 @@ import java.io.*;
 
 class Solution {
 	public static void main (String[] args) {
+		// in chocolate problem there are n packets of the chocolate and m children ,we have to distribute choclate in such a manner that every child
+		//get 1 packet then we have to distribute the choclate in such a manner that the difference between the maximum and minimum is minimum.
+		//what we do is consider the window of m size and slide it over the whole array ,and then update the maximum as we proceed furthur.
 		Scanner sc=new Scanner(System.in);
 		int t=sc.nextInt();
 		while(t>0)

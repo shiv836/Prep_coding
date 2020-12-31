@@ -3,6 +3,8 @@ class Kadane{
     // Function to find circular subarray with maximum sum
     // a: input array
     // n: size of array
+   // to calculate the circular sum subarray we will return the maximum of the kadane and reverse kadane. in kadane, we will calculate the current //sum ,update the current sum ,then set the current sum to zero if the curr sum is less than zero. In the reverse kadane we will calculate the ,the 
+// the maximum subarray and then subtract it from the total sum.
     static int circularSubarraySum(int a[], int n) {
         
         // Your code here
